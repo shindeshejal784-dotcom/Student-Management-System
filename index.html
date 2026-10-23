@@ -8,40 +8,106 @@
 </head>
 <body>
 
-    <header>
-        <h1>Student Management System</h1>
-        <p>Manage Your Student Records</p>
+    <header class="hero">
+        <div class="hero-content">
+            <span class="eyebrow">STUDENT PORTAL</span>
+            <h1>Student Management System</h1>
+            <p>Manage your student records in one place.</p>
+        </div>
     </header>
 
     <main class="container">
-        <section class="form-section">
-            <h2>Add Student</h2>
+
+        <section class="stats-grid">
+            <div class="stat-card">
+                <span>Total Students</span>
+                <h2 id="totalStudents">0</h2>
+            </div>
+            <div class="stat-card">
+                <span>Courses</span>
+                <h2 id="totalCourses">0</h2>
+            </div>
+        </section>
+
+        <section class="form-section panel">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">STUDENT DETAILS</span>
+                    <h2 id="formTitle">Add New Student</h2>
+                </div>
+                <span class="section-icon">＋</span>
+            </div>
 
             <form id="studentForm">
-                <input type="text" id="name" placeholder="Student Name" required>
-                <input type="text" id="roll" placeholder="Roll Number" required>
-                <input type="text" id="course" placeholder="Course Name" required>
+                <div class="form-grid">
+                    <label>
+                        Student Name
+                        <input type="text" id="name"
+                            placeholder="Enter full name" required>
+                    </label>
 
-                <button type="submit">Add Student</button>
+                    <label>
+                        Roll Number
+                        <input type="text" id="roll"
+                            placeholder="Enter roll number" required>
+                    </label>
+
+                    <label class="full-width">
+                        Course Name
+                        <input type="text" id="course"
+                            placeholder="e.g. BCA" required>
+                    </label>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="submitButton">
+                        Add Student
+                    </button>
+                    <button type="button" id="cancelEdit"
+                        class="secondary-button" hidden>
+                        Cancel Edit
+                    </button>
+                </div>
             </form>
         </section>
 
-        <section class="table-section">
-            <h2>Student Records</h2>
+        <section class="table-section panel">
+            <div class="section-heading records-heading">
+                <div>
+                    <span class="eyebrow">DIRECTORY</span>
+                    <h2>Student Records</h2>
+                    <p class="muted">Search, edit or remove a record.</p>
+                </div>
+            </div>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Roll No.</th>
-                        <th>Course</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody id="studentList"></tbody>
-            </table>
+            <label class="search-box">
+                <span>⌕</span>
+                <input type="search" id="searchStudent"
+                    placeholder="Search by name, roll number or course..."
+                    aria-label="Search student records">
+            </label>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Roll No.</th>
+                            <th>Course</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentList"></tbody>
+                </table>
+            </div>
+
             <p id="emptyMessage">No students added yet.</p>
+            <p id="noResults" hidden>No matching students found.</p>
         </section>
+
+        <footer>
+            Student Management System · Built with HTML, CSS & JavaScript
+        </footer>
     </main>
 
     <script src="script.js"></script>
